@@ -1,9 +1,7 @@
-FROM node:7
+FROM alpine:3.5
 
-ADD . /opt/edr
+MAINTAINER Richard Clayton <rclayton@userzoom.com>
 
-WORKDIR /opt/edr
+ADD ./build/edr /
 
-RUN npm i --production
-
-ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["edr"]

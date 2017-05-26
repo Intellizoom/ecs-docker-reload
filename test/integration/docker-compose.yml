@@ -2,6 +2,7 @@ version: "2"
 services:
   edr:
     build:
+      dockerfile: ../../Dockerfile.dev
       context: ../../
     image: edr:latest
     command: "--reload haproxy --watch /tmp"
