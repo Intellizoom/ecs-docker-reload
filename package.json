@@ -1,0 +1,25 @@
+{
+  "name": "ecs-docker-reload",
+  "version": "1.0.0",
+  "description": "Sends a SIGHUP to the target container when a file changes",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha test/unit --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "commander": "^2.9.0",
+    "dockerode": "^2.4.3",
+    "lodash": "^4.17.4",
+    "sane": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.1",
+    "sinon-chai": "^2.10.0"
+  }
+}
