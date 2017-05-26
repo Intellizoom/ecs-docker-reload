@@ -18,5 +18,5 @@ deployment:
     commands:
       - npm run nexe:package
       - docker build -t intellizoom/ecs-docker-reload:latest .
-      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD -e $DOCKER_EMAIL
       - docker push intellizoom/ecs-docker-reload:latest
