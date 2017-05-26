@@ -17,4 +17,6 @@ deployment:
   production:
     tag: /[0-9]+(\.[0-9]+)*/
     commands:
-      - docker build . -t intellizoom/edr:latest
+      - docker build . -t intellizoom/ecs-docker-reload:latest
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker push intellizoom/ecs-docker-reload:latest
