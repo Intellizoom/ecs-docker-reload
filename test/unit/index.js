@@ -43,7 +43,7 @@ describe('ECS Docker Reload', () => {
 
     it('should parse values submitted to the process', () => {
       const params = ['node', 'index.js', '-w', '/tmp', '-r', 'foo-bar', '-t', '6000', '-d', '/tmp/docker.sock'];
- 
+
       expect(getConfiguration(params))
         .to.deep.eq({
           waitTime: 6000,
@@ -56,7 +56,7 @@ describe('ECS Docker Reload', () => {
 
     it('should provide sensible defaults', () => {
       const params = ['node', 'index.js', '-w', '/tmp', '-r', 'foo-bar'];
- 
+
       expect(getConfiguration(params))
         .to.deep.eq({
           waitTime: 5000,
@@ -253,15 +253,13 @@ describe('ECS Docker Reload', () => {
   });
 
   describe('Signal on File Change', () => {
-    it('should throw an error if the file does not exist', () => {
-      return expect(() => signalOnFileChange({}, '/should/not/exist'))
-        .to.throw(Error);
-    });
+    it('should throw an error if the file does not exist', () => expect(() => signalOnFileChange({}, '/should/not/exist'))
+        .to.throw(Error));
 
     describe('File Watcher', () => {
       let watcher;
       const fileThatWillChange = resolve(__dirname, './watchme');
-      
+
       beforeEach(() => {
         fs.writeFileSync(fileThatWillChange, 'foobar\n');
       });

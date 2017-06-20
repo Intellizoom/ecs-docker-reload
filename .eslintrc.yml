@@ -1,0 +1,22 @@
+extends:
+  "airbnb-base"
+
+plugins: ["mocha"]
+
+rules:
+  no-underscore-dangle: ["error", {allow: ["_id","__v", "__meta__"], allowAfterThis: true}]
+  "import/no-extraneous-dependencies": ["error", {"devDependencies": ["test/**/*.js"]}]
+  comma-dangle: ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never",
+    }]
+  valid-jsdoc: ['error', {"requireReturn": false}]
+  "mocha/no-exclusive-tests": "error"
+  "mocha/no-skipped-tests": "error"
+  "mocha/handle-done-callback": "error"
+  "mocha/no-identical-title": "error"
+
+root: true

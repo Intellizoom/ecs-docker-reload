@@ -58,10 +58,10 @@ const assertOrDie = (condition, message, program) => {
     if (process.env.NODE_ENV === 'test') {
       throw new AssertionError(message);
     }
-    console.log(message)
+    console.log(message);
     program.help(); // this is a process.exit()
   }
-}
+};
 
 const getConfiguration = (argv) => {
   // This isolates Commander (does not use the singleton export).
@@ -95,7 +95,7 @@ const getConfiguration = (argv) => {
     reload: program.reload,
     dirToWatch: program.watch,
   };
-}
+};
 
 const getDockerInstance = (socketPath) => {
   assert(
@@ -126,7 +126,7 @@ const signalOnFileChange = (target, dirToWatch) => {
   watcher.on('add', notifyTarget);
 
   return watcher;
-}
+};
 
 const run = async (argv) => {
   try {
@@ -142,12 +142,11 @@ const run = async (argv) => {
     console.log(`Watching path ${config.dirToWatch} to change...`);
 
     signalOnFileChange(target, config.dirToWatch);
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
     process.exit(1);
   }
-}
+};
 
 module.exports = {
   getConfiguration,
